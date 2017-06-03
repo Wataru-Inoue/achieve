@@ -52,5 +52,16 @@ end
   gem 'devise'
   
   gem 'faker'
-  
+
+  gem 'ruby-debug-ide', '0.6.0'
+
+  gem 'debase', '>=0.2.2.bata10'
+
+  gem 'hirb'
+
+  gem 'hirb-unicode'
+
+  group :development do
+    gem 'letter_opener_web'
+  end
 
