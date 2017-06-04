@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   delete '/hogehoge/' , to: 'fuga#hoge'
 
   devise_for :users
