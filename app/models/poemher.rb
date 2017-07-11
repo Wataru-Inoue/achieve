@@ -1,3 +1,3 @@
-class Poemher < ActiveRecord::Base
+class Poemher
   include Her::Model
 end
