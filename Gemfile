@@ -74,3 +74,5 @@ end
   gem 'cancan'
 
   gem 'activeresource'
+
+  gem 'her'
