@@ -14,6 +14,8 @@
         <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "名前" %>
       </div>
     
+  <% if @user.provider.blank? %>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
@@ -36,6 +38,14 @@
         <i>(変更を確認するために現在のパスワードが必要です)</i>
       </div>
     
+  <% end %>
+
+      <div class="field">
+        <%= profile_img(@user) if profile_img(@user) %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+     </div>
+
       <div class="actions">
         <%= f.submit "更新する", class: "btn btn-primary btn-block" %>
       </div>

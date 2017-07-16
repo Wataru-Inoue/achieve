@@ -44,3 +44,29 @@ input[type="submit"].btn-block{
     opacity: 0.7;
   }
 }
+
+// index用
+
+.blogIcon{
+  width: 100px;
+  height: 140px;
+  .blogUsername{
+    line-height: 100%;
+    margin-top: 30px;
+  }
+}
+
+.blogBotan{
+  width: 100px;
+  line-height: 100px;
+  vertical-align: middle;
+}
+
+.blogContent{
+  overflow: hidden;
+  width: auto;
+  padding: 5px 20px;
+  vertical-align: middle;
+  text-align: left;
+  word-wrapper: breake-word;
+}
