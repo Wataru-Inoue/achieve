@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: [:edit, :update, :destroy]
+
   # コメントを保存、投稿するためのアクションです。
   def create
     # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
@@ -16,7 +18,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     @blog = @comment.blog
     respond_to do |format|
       if @comment.destroy
@@ -26,7 +27,21 @@ class CommentsController < ApplicationController
         format.html { render :new }
       end
     end
+  end
 
+  def edit
+  end
+
+  def update
+    @blog = @comment.blog
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to blog_path(@blog), notice: 'コメントを編集しました！' }
+        format.js { render :index }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   private
@@ -34,4 +49,9 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:blog_id, :content)
     end
+
+    def set_comment
+      @comment = Comment.find(params[:id])
+    end
+
 end
