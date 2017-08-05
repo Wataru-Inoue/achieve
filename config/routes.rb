@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'comments/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   delete '/hogehoge/' , to: 'fuga#hoge'
 
@@ -8,10 +10,9 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
 
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-    collection do
-      post :confirm
-    end
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
   end
   
   resources :contacts, only: [:new, :create] do
