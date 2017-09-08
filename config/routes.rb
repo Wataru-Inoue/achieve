@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'comments/create'
+  resources :users, only: [:index, :show]
+
+  resources :relationships, only: [:create, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   delete '/hogehoge/' , to: 'fuga#hoge'
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
     resources :comments
     post :confirm, on: :collection
   end
+
+  get 'comments/create'
   
   resources :contacts, only: [:new, :create] do
     collection do
