@@ -2,9 +2,16 @@
   <h2>ユーザー</h2>
   <% @users.each do |user| %>
       <div class="container-child col-md-2 col-sm-4 col-xs-6 ">
-        <%= profile_img(user) %>
+        <div id="image">
+          <%= profile_img(user) %>
+        </div>
         <%= user.email %>
-        <%= render 'follow_form', user: user %>
+        <%= link_to '詳細', user_path(user), class: 'btn btn-default btn-sm btn-success' %>
+        <% if user.id != current_user.id %>
+            <%= render 'follow_form', user: user %>
+        <% elsif user.id == current_user.id %>
+            <p>自分自身はフォローできません</p>
+        <% end %>
       </div>
   <% end %>
 </div>
