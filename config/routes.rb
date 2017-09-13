@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'notifications/index'
+
   resources :relationships, only: [:create, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
