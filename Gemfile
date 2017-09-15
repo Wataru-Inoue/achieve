@@ -45,6 +45,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
 
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+
 end
 
   gem 'twitter-bootstrap-rails'
@@ -65,10 +71,11 @@ end
 
   gem 'hirb-unicode'
 
+  gem 'therubyracer', platforms: :ruby
+
   group :development do
     gem 'letter_opener_web'
 
-    gem 'dotenv-rails'
   end
 
   gem 'rails_admin'
@@ -92,3 +99,10 @@ end
   gem 'pusher'
 
   gem 'fog'
+
+  gem 'carrierwave-aws'
+
+  gem 'dotenv-rails'
+
+  gem 'unicorn'
+
