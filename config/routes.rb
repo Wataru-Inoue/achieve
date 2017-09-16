@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  delete '/hogehoge/' , to: 'fuga#hoge'
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
