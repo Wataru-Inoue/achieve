@@ -106,3 +106,4 @@ end
 
   gem 'unicorn'
 
+  gem 'fog-aws'
