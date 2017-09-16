@@ -8,8 +8,4 @@ class UsersController < ApplicationController
     @followers = @user.followers
   end
 
-  private
-  def blogs_params
-    params.require(:user).permit(:id,:name,:profile_img)
-  end
 end
